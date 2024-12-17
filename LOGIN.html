@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playza - Login</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a, #1b1b1b);
+            color: #fff;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Main Container */
+        .container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1200px;
+            height: 80vh;
+            opacity: 0;
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Left Panel */
+        .left-panel {
+            flex: 1;
+            background: linear-gradient(135deg, #001a33, #0a3d62);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            padding: 40px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        /* Right Panel */
+      /* Right Panel */
+.right-panel {
+    flex: 1;
+    background: #121212;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px; /* Meningkatkan padding untuk memberi ruang lebih banyak */
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+/* Card Container (Form Login) */
+.card {
+    background: #181818;
+    padding: 50px; /* Memberikan padding lebih banyak agar lebih besar */
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+    width: 100%;
+    max-width: 500px; /* Meningkatkan lebar maksimal */
+    text-align: center;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+/* Judul */
+.card h2 {
+    margin-bottom: 25px; /* Memberikan jarak lebih pada judul */
+    font-size: 2rem; /* Membuat ukuran font judul lebih besar */
+    color: #00c3ff;
+}
+
+/* Input Fields */
+.input-container input {
+    width: 100%;
+    padding: 16px 12px; /* Padding lebih besar untuk input */
+    font-size: 1.1rem; /* Membuat font lebih besar */
+}
+
+/* Button */
+button {
+    width: 100%;
+    padding: 16px; /* Padding lebih besar pada tombol */
+    font-size: 1.1rem; /* Ukuran font tombol lebih besar */
+}
+
+/* Responsiveness: Menyesuaikan untuk layar kecil */
+
+
+        /* Input Styles */
+.input-container {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 16px 12px; /* Membuat padding lebih besar */
+    border: 1px solid #444;
+    border-radius: 6px;
+    background: #222;
+    color: #fff;
+    font-size: 1.1rem; /* Ukuran font lebih besar */
+    transition: border-color 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: #00c3ff;
+    box-shadow: 0 0 8px #00c3ff;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+    transition: all 0.3s ease;
+}
+
+input:focus::placeholder {
+    color: transparent;
+}
+
+/* Floating Label */
+label {
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    color: rgba(255, 255, 255, 0.6);
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+input:focus ~ label,
+input:not(:placeholder-shown) ~ label {
+    top: -8px;
+    left: 10px;
+    font-size: 0.9rem;
+    color: #00c3ff;
+}
+
+/* Button Styles */
+button {
+    width: 100%;
+    padding: 16px; /* Membuat padding lebih besar */
+    background: linear-gradient(135deg, #007bb5, #00c3ff);
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 1.1rem; /* Ukuran font lebih besar */
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #006c99, #00a3e0);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 195, 255, 0.4);
+}
+
+        /* Social Login */
+        .social-login img {
+            width: 35px;
+            margin: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .social-login img:hover {
+            transform: scale(1.2);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .left-panel {
+        display: none;
+    }
+
+    /* Mengatur lebar card pada layar kecil */
+    .card {
+        max-width: 90%;
+        padding: 40px;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Left Panel -->
+        <div class="left-panel">
+            <h1>Selamat Datang</h1>
+            <div class="brand-logo">
+                <img src="Playza.png" alt="Logo Playza">
+            </div>
+            <p>Masuk dan nikmati semua fitur menarik Playza!</p>
+        </div>
+
+        <!-- Right Panel -->
+        <div class="right-panel">
+            <div class="card">
+                <h2>Login Akun</h2>
+                <form id="loginForm">
+                    <div class="input-container">
+                        <input type="email" id="email" placeholder=" " required>
+                        <label for="email">E-Mail</label>
+                    </div>
+                    <div class="input-container">
+                        <input type="password" id="password" placeholder=" " required>
+                        <label for="password">Kata Sandi</label>
+                    </div>
+                    <button type="submit">Login</button>
+                </form>
+                <p>Belum punya akun? <a href="register.html" id="registerLink">Registrasi</a></p>
+                <p>Atau login dengan</p>
+                <div class="social-login">
+                    <img src="Google.png" alt="Google" title="Google">
+                    <img src="Faceboo.png" alt="Facebook" title="Facebook">
+                    <img src="ig.png" alt="Instagram" title="Instagram">
+                    <img src="X.png" alt="X" title="X">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value;
+
+            if (!email || !password) {
+                alert("Harap isi email dan kata sandi.");
+                return;
+            }
+
+            alert("Login berhasil!\nSelamat datang kembali di Playza.");
+            window.location.href = "Homepage.html";
+        });
+
+        document.getElementById("registerLink").addEventListener("click", function (e) {
+            e.preventDefault();
+            window.location.href = "REGISTER.html";
+        });
+    </script>
+</body>
+</html>
